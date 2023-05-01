@@ -21,7 +21,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 
     #Read the HTTP Response...
 
-    #Step 1️⃣: Read the first line, which is the STATUS
+    #Step 1️⃣: Read the first line, which contains the STATUS
     status = stream.readline().rstrip()
     print(f"== HTTP Status: {status}")
 
@@ -47,7 +47,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         print(f"\t{name}: {value}")
 
     #Step 3️⃣: After the blank line at the end of the headers
-    #comes the contents, which continues to the end.
+    #comes the contents, which continues until the end.
     contents = ""
     for line in stream:
         contents = contents + line
